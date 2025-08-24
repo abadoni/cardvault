@@ -62,6 +62,47 @@ cardvault/
 ### 1. Backend (Spring Boot)
 
 1. Open Terminal and navigate to project root:
-```bash
 cd /path/to/cardvault
+
+2. Run Spring Boot:
+./mvnw spring-boot:run
+
+Backend will start on http://localhost:8080
+
+API Endpoints:
+
+POST /api/cards → Add card (cardHolder + pan)
+
+GET /api/cards/search?query=<PAN or last 4 digits> → Search cards
+
+### 2. Frontend (React)
+
+1. Navigate to UI folder:
+   cd ui
+
+2. Install dependencies:
+   npm install
+
+3. Start React development server:
+   npm start
+
+Open http://localhost:3000 in browser
+
+Add/Search cards via the UI
+
+---
+
+## Security Notes
+
+1. PAN is never stored in plaintext
+2. AES-GCM encryption is used for secure storage
+3. IV (Initialization Vector) is random per record
+4. Only masked PAN is returned to UI
+5. Inline validations prevent invalid card numbers
+
+---
+
+## Author
+
+Ashish Badoni
 
